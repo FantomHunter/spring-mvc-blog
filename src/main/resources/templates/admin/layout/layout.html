@@ -26,7 +26,17 @@
   <!-- Custom Theme Style -->
   <link href="admin/build/css/custom.min.css" rel="stylesheet" th:href="@{/admin/build/css/custom.min.css}">
 </head>
-<body>
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <div th:replace="admin/fragment/sidebar :: sidebar"></div>
+    <div class="top_nav" th:replace="admin/fragment/topnav :: topnav"></div>
+    <div class="right_col" role="main">
+      <div layout:fragment=""></div>
+
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
