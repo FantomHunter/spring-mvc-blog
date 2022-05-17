@@ -4,36 +4,37 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Main layout</title>
 
   <!-- Bootstrap -->
-  <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" th:href="@{/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css}">
-  <link href="admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/bootstrap/dist/css/bootstrap.min.css}">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+        crossorigin="anonymous">
+
+  <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"
+        th:href="@{/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css}">
+  <link href="admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
+        th:href="@{/admin/vendors/bootstrap/dist/css/bootstrap.min.css}">
   <!-- Font Awesome -->
-  <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" th:href="@{/admin/vendors/font-awesome/css/font-awesome.min.css}">
-  <!-- NProgress -->
-  <link href="admin/vendors/nprogress/nprogress.css" rel="stylesheet" th:href="@{/admin/vendors/nprogress/nprogress.css}">
-  <!-- iCheck -->
-  <link href="admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet" th:href="@{/admin/vendors/iCheck/skins/flat/green.css}">
-  <!-- Datatables -->
-
-  <link href="admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css}">
-  <link href="admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css}">
-  <link href="admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css}">
-  <link href="admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css}">
-  <link href="admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet" th:href="@{/admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css}">
-
+  <link href="admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        th:href="@{/admin/vendors/font-awesome/css/font-awesome.min.css}">
   <!-- Custom Theme Style -->
-  <link href="admin/build/css/custom.min.css" rel="stylesheet" th:href="@{/admin/build/css/custom.min.css}">
+  <link href="admin/build/css/custom.min.css" rel="stylesheet"
+        th:href="@{/admin/build/css/custom.min.css}">
 </head>
 <body class="nav-md">
 <div class="container body">
   <div class="main_container">
-    <div th:replace="admin/fragment/sidebar.html :: sidebar"></div>
     <div class="top_nav" th:replace="admin/fragment/topnav.html :: topnav"></div>
-    <div class="right_col" role="main">
-      <div layout:fragment="content">
-        <p>content here</p>
+    <div class="row">
+      <div th:replace="admin/fragment/sidebar.html :: sidebar"></div>
+      <div class="col-md-9 ms-sm-auto px-md-4" role="main">
+        <div layout:fragment="content">
+          <p>content here</p>
+        </div>
       </div>
     </div>
     <footer th:replace="admin/fragment/footer.html :: footer"></footer>
@@ -44,29 +45,15 @@
 <script src="admin/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<!-- FastClick -->
-<script src="admin/vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script src="admin/vendors/nprogress/nprogress.js"></script>
-<!-- iCheck -->
-<script src="admin/vendors/iCheck/icheck.min.js"></script>
-<!-- Datatables -->
-<script src="admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="admin/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-<script src="admin/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script src="admin/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="admin/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="admin/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="admin/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="admin/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="admin/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-<script src="admin/vendors/jszip/dist/jszip.min.js"></script>
-<script src="admin/vendors/pdfmake/build/pdfmake.min.js"></script>
-<script src="admin/vendors/pdfmake/build/vfs_fonts.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
 <!-- Custom Theme Scripts -->
 <script src="admin/build/js/custom.min.js"></script>
 </body>

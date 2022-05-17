@@ -6,95 +6,49 @@
   <title>Top nav</title>
 </head>
 <body>
-<div class="top_nav" th:fragment="topnav">
-  <div class="nav_menu">
-    <div class="nav toggle">
-      <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-    </div>
-    <nav class="nav navbar-nav">
-      <ul class=" navbar-right">
-        <li class="nav-item dropdown open" style="padding-left: 15px;">
-          <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-            <img src="images/img.jpg" alt="">John Doe
-          </a>
-          <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item"  href="javascript:;"> Profile</a>
-            <a class="dropdown-item"  href="javascript:;">
-              <span class="badge bg-red pull-right">50%</span>
-              <span>Settings</span>
+<div class="top_nav row" th:fragment="topnav">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
             </a>
-            <a class="dropdown-item"  href="javascript:;">Help</a>
-            <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-          </div>
-        </li>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
-        <li role="presentation" class="nav-item dropdown open">
-          <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-envelope-o"></i>
-            <span class="badge bg-green">6</span>
-          </a>
-          <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-            <li class="nav-item">
-              <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <div class="text-center">
-                <a class="dropdown-item">
-                  <strong>See All Alerts</strong>
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
 </div>
 </body>
 </html>
