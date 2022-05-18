@@ -28,7 +28,7 @@
       </li>
       <li>
         <a href="#" class="nav-link" th:href="@{/admin/all-post?page=0&size=5}"
-           th:classappend="${#httpServletRequest.getRequestURI() == '/admin/all-post' ? 'active':'link-dark'}">
+           th:classappend="${#httpServletRequest.getRequestURI() == '/admin/all-post' or #httpServletRequest.getRequestURI() == '/admin/create-new-post' ? 'active':'link-dark'}">
           <svg class="bi pe-none me-2" width="16" height="16">
             <use xlink:href="#speedometer2"></use>
           </svg>

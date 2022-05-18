@@ -13,7 +13,8 @@
   <div class="main_container">
     <!-- page content -->
     <th:block layout:fragment="content">
-      <p>content</p>
+      <div class="h3">All Post</div>
+      <a href="" class="btn btn-primary" th:href="@{/admin/create-new-post}">Create Post</a>
       <table class="table" th:unless="${allPostDataOut eq null}">
         <thead>
         <tr>
