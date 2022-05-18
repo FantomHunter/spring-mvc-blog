@@ -6,7 +6,9 @@ import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataIn;
 import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataOut;
 import com.codehunter.springmvcblog.entity.Post;
 import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 import java.util.stream.Collectors;
+import javax.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -38,6 +40,7 @@ public class PostService {
 
   private PostDto convertPostDaoToPostDto(Post e) {
     var dto = new PostDto();
+    dto.setId(e.getId().toString());
     dto.setContent(new String(e.getContent(), StandardCharsets.UTF_8));
     dto.setTitle(e.getTitle());
     dto.setCreatedDate(e.getCreatedDate());
@@ -49,5 +52,12 @@ public class PostService {
     postDao.setTitle(post.getTitle());
     postDao.setContent(post.getContent().getBytes(StandardCharsets.UTF_8));
     return this.convertPostDaoToPostDto(postRepository.save(postDao));
+  }
+
+  public PostDto getPost(String id) {
+    return postRepository
+        .findById(UUID.fromString(id))
+        .map(this::convertPostDaoToPostDto)
+        .orElseThrow(EntityNotFoundException::new);
   }
 }

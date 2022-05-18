@@ -35,9 +35,9 @@
             <td th:utext="${post.content}">Otto</td>
             <td th:utext="${#temporals.format(post.createdDate,'dd MMMM yyyy hh:mm:ss')}">Otto</td>
             <td>
-              <div class="btn btn-info">Show</div>
-              <div class="btn btn-warning">Update</div>
-              <div class="btn btn-danger">Delete</div>
+              <a class="btn btn-info" th:href="@{/admin/post-details/{id}(id=${post.id})}">Show</a>
+              <a class="btn btn-warning">Update</a>
+              <a class="btn btn-danger">Delete</a>
             </td>
           </tr>
           </tbody>
@@ -50,11 +50,11 @@
             <th:block th:each="page : ${#numbers.sequence(1, allPostDataOut.totalPage, 1)}">
               <li class="page-item"
                   th:classappend="${ page == allPostDataOut.currentPage? 'active':''}">
-                <a class="page-link" href="#" th:text="${page}">1</a></li>
-              <li class="page-item" th:classappend="${!allPostDataOut.hasNext? 'disabled':''}">
-                <a class="page-link" href="#">Next</a>
-              </li>
+                <a class="page-link" href="#" th:text="${page}" th:href="@{/admin/all-post(page=${page-1},size='5')}">1</a></li>
             </th:block>
+            <li class="page-item" th:classappend="${!allPostDataOut.hasNext? 'disabled':''}">
+              <a class="page-link" href="#">Next</a>
+            </li>
           </ul>
         </nav>
       </th:block>
