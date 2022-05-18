@@ -4,6 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{admin/layout/layout}"
 >
+<head>
+  <title>Home</title>
+</head>
 
 <body class="nav-md">
 <div class="container body">
@@ -25,15 +28,6 @@
           <th scope="row" th:text="${iteration.count}"></th>
           <td th:text="${post.title}">Mark</td>
           <td th:utext="${post.content}">Otto</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
         </tr>
         </tbody>
       </table>

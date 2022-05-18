@@ -18,7 +18,6 @@ public class AHomeController {
 
   @GetMapping("")
   public String getAdminHome(Model model) {
-    model.addAttribute("allPostDataOut", null);
     return "admin/home.html";
   }
 
