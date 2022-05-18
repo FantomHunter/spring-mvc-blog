@@ -15,23 +15,45 @@
     <th:block layout:fragment="content">
       <div class="h3">All Post</div>
       <a href="" class="btn btn-primary" th:href="@{/admin/create-new-post}">Create Post</a>
-      <table class="table" th:unless="${allPostDataOut eq null}">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">content</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:unless="${allPostDataOut.postDtoList eq null or #lists.isEmpty(allPostDataOut.postDtoList)}"
-            th:each="post, iteration: ${allPostDataOut.postDtoList}">
-          <th scope="row" th:text="${iteration.count}"></th>
-          <td th:text="${post.title}">Mark</td>
-          <td th:utext="${post.content}">Otto</td>
-        </tr>
-        </tbody>
-      </table>
+      <th:block th:unless="${allPostDataOut eq null}">
+        <div class="fs-6 fw-semibold">Total [[${allPostDataOut?.totalElement}]] posts</div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">content</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:unless="${allPostDataOut.postDtoList eq null or #lists.isEmpty(allPostDataOut.postDtoList)}"
+              th:each="post, iteration: ${allPostDataOut.postDtoList}">
+            <th scope="row" th:text="${iteration.count}"></th>
+            <td th:text="${post.title}">Mark</td>
+            <td th:utext="${post.content}">Otto</td>
+          </tr>
+          </tbody>
+        </table>
+        <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item" th:classappend="${!allPostDataOut.hasPrevious? 'disabled':''}">
+              <span class="page-link">Previous</span>
+            </li>
+            <th:block th:each="page : ${#numbers.sequence(1, allPostDataOut.totalPage, 1)}">
+              <li class="page-item"
+                  th:classappend="${ page == allPostDataOut.currentPage? 'active':''}">
+                <a class="page-link" href="#" th:text="${page}">1</a></li>
+              <!--              <li class="page-item active" aria-current="page">-->
+              <!--                <span class="page-link">2</span>-->
+              <!--              </li>-->
+              <!--              <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+              <li class="page-item" th:classappend="${!allPostDataOut.hasNext? 'disabled':''}">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </th:block>
+          </ul>
+        </nav>
+      </th:block>
       <!-- /page content -->
     </th:block>
   </div>

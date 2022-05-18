@@ -36,6 +36,11 @@ public class PostService {
                   return dto;
                 })
             .collect(Collectors.toList()));
+    out.setTotalElement((int) listPost.getTotalElements());
+    out.setTotalPage(listPost.getTotalPages());
+    out.setCurrentPage(listPost.getNumber() + 1);
+    out.setHasNext(listPost.hasNext());
+    out.setHasPrevious(listPost.hasPrevious());
     return out;
   }
 }

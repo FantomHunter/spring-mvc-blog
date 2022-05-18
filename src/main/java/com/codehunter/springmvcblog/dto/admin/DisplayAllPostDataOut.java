@@ -8,4 +8,8 @@ import lombok.Data;
 public class DisplayAllPostDataOut {
   private List<PostDto> postDtoList;
   private Integer totalElement;
+  private Integer totalPage;
+  private Integer currentPage;
+  private Boolean hasNext;
+  private Boolean hasPrevious;
 }
