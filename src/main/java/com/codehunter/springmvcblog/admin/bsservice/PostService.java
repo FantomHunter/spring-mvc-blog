@@ -4,6 +4,7 @@ import com.codehunter.springmvcblog.PostRepository;
 import com.codehunter.springmvcblog.dto.PostDto;
 import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataIn;
 import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataOut;
+import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PostService {
+
   private final PostRepository postRepository;
 
   public DisplayAllPostDataOut displayAllPostDataOut(DisplayAllPostDataIn in) {
@@ -29,7 +31,7 @@ public class PostService {
             .map(
                 e -> {
                   var dto = new PostDto();
-                  dto.setContent(e.getContent());
+                  dto.setContent(new String(e.getContent(), StandardCharsets.UTF_8));
                   dto.setTitle(e.getTitle());
                   return dto;
                 })

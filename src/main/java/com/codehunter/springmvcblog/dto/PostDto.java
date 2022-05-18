@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class PostDto {
   private String title;
-  private byte[] content;
+  private String content;
 }
