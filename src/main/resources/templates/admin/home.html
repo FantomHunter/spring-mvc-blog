@@ -45,15 +45,20 @@
         <nav aria-label="...">
           <ul class="pagination">
             <li class="page-item" th:classappend="${!allPostDataOut.hasPrevious? 'disabled':''}">
-              <span class="page-link">Previous</span>
+              <a class="page-link" href="#" th:href="@{/admin/all-post(page=${allPostDataOut.currentPage-2},size='5')}"
+                 th:if="${allPostDataOut.hasPrevious}">Previous</a>
+              <span class="page-link" th:unless="${allPostDataOut.hasPrevious}">Previous</span>
             </li>
             <th:block th:each="page : ${#numbers.sequence(1, allPostDataOut.totalPage, 1)}">
               <li class="page-item"
                   th:classappend="${ page == allPostDataOut.currentPage? 'active':''}">
-                <a class="page-link" href="#" th:text="${page}" th:href="@{/admin/all-post(page=${page-1},size='5')}">1</a></li>
+                <a class="page-link" href="#" th:text="${page}"
+                   th:href="@{/admin/all-post(page=${page-1},size='5')}">1</a></li>
             </th:block>
             <li class="page-item" th:classappend="${!allPostDataOut.hasNext? 'disabled':''}">
-              <a class="page-link" href="#">Next</a>
+              <a class="page-link" href="#" th:if="${allPostDataOut.hasNext}"
+                 th:href="@{/admin/all-post(page=${allPostDataOut.currentPage},size='5')}">Next</a>
+              <span class="page-link" th:unless="${allPostDataOut.hasNext}">Next</span>
             </li>
           </ul>
         </nav>
