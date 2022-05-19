@@ -13,6 +13,11 @@
   <div class="main_container">
     <!-- page content -->
     <th:block layout:fragment="content">
+      <div class="alert alert-info alert-dismissible fade show" role="alert" th:if="${alert!=null}">
+        <strong th:text="${alert}"></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
       <div class="h3">All Post</div>
       <a href="" class="btn btn-primary" th:href="@{/admin/create-new-post}">Create Post</a>
       <th:block th:unless="${allPostDataOut eq null}">
@@ -36,8 +41,10 @@
             <td th:utext="${#temporals.format(post.createdDate,'dd MMMM yyyy hh:mm:ss')}">Otto</td>
             <td>
               <a class="btn btn-info" th:href="@{/admin/post-details/{id}(id=${post.id})}">Show</a>
-              <a class="btn btn-warning" th:href="@{/admin/update-post/{id}(id=${post.id})}">Update</a>
-              <a class="btn btn-danger" th:href="@{/admin/delete-post/{id}(id=${post.id})}">Delete</a>
+              <a class="btn btn-warning"
+                 th:href="@{/admin/update-post/{id}(id=${post.id})}">Update</a>
+              <a class="btn btn-danger"
+                 th:href="@{/admin/delete-post/{id}(id=${post.id})}">Delete</a>
             </td>
           </tr>
           </tbody>
@@ -45,7 +52,8 @@
         <nav aria-label="...">
           <ul class="pagination">
             <li class="page-item" th:classappend="${!allPostDataOut.hasPrevious? 'disabled':''}">
-              <a class="page-link" href="#" th:href="@{/admin/all-post(page=${allPostDataOut.currentPage-2},size='5')}"
+              <a class="page-link" href="#"
+                 th:href="@{/admin/all-post(page=${allPostDataOut.currentPage-2},size='5')}"
                  th:if="${allPostDataOut.hasPrevious}">Previous</a>
               <span class="page-link" th:unless="${allPostDataOut.hasPrevious}">Previous</span>
             </li>

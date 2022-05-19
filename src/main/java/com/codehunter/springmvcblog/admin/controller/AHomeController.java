@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/admin")
@@ -71,7 +72,12 @@ public class AHomeController {
   }
 
   @GetMapping("/delete-post/{id}")
-  public String deletePost(@PathVariable String id, Model model, HttpServletRequest request) {
+  public String deletePost(
+      @PathVariable String id,
+      Model model,
+      HttpServletRequest request,
+      RedirectAttributes redirectAttributes) {
+    redirectAttributes.addFlashAttribute("alert", "Delete post successfully!!");
     postService.deletePost(id);
     String referer = request.getHeader("Referer");
     return "redirect:" + referer;
