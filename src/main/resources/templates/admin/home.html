@@ -36,7 +36,7 @@
             <td th:utext="${#temporals.format(post.createdDate,'dd MMMM yyyy hh:mm:ss')}">Otto</td>
             <td>
               <a class="btn btn-info" th:href="@{/admin/post-details/{id}(id=${post.id})}">Show</a>
-              <a class="btn btn-warning">Update</a>
+              <a class="btn btn-warning" th:href="@{/admin/update-post/{id}(id=${post.id})}">Update</a>
               <a class="btn btn-danger">Delete</a>
             </td>
           </tr>

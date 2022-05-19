@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -57,6 +58,22 @@ public class PostService {
   public PostDto getPost(String id) {
     return postRepository
         .findById(UUID.fromString(id))
+        .map(this::convertPostDaoToPostDto)
+        .orElseThrow(EntityNotFoundException::new);
+  }
+
+  public PostDto updatePost(PostDto post) {
+    if (!StringUtils.hasText(post.getId())) {
+      throw new EntityNotFoundException();
+    }
+    return postRepository
+        .findById(UUID.fromString(post.getId()))
+        .map(
+            postDao -> {
+              postDao.setTitle(post.getTitle());
+              postDao.setContent(post.getContent().getBytes(StandardCharsets.UTF_8));
+              return postRepository.save(postDao);
+            })
         .map(this::convertPostDaoToPostDto)
         .orElseThrow(EntityNotFoundException::new);
   }

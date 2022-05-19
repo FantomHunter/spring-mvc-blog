@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,10 +43,23 @@ public class AHomeController {
     return "admin/create-post.html";
   }
 
+  @GetMapping("/update-post/{id}")
+  public String showUpdatePostPage(@PathVariable String id, Model model) {
+    model.addAttribute("post", postService.getPost(id));
+    return "admin/update-post.html";
+  }
+
   @PostMapping("/create-post")
   public String createPost(@ModelAttribute("post") PostDto post, BindingResult error, Model model) {
     log.info("createPost" + post);
     postService.createPost(post);
+    return "redirect:/admin";
+  }
+
+  @PostMapping("/update-post")
+  public String updatePost(@ModelAttribute("post") PostDto post, BindingResult error, Model model) {
+    log.info("updatePost" + post);
+    postService.updatePost(post);
     return "redirect:/admin";
   }
 
