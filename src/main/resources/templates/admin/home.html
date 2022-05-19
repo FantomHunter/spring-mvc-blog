@@ -37,7 +37,7 @@
             <td>
               <a class="btn btn-info" th:href="@{/admin/post-details/{id}(id=${post.id})}">Show</a>
               <a class="btn btn-warning" th:href="@{/admin/update-post/{id}(id=${post.id})}">Update</a>
-              <a class="btn btn-danger">Delete</a>
+              <a class="btn btn-danger" th:href="@{/admin/delete-post/{id}(id=${post.id})}">Delete</a>
             </td>
           </tr>
           </tbody>

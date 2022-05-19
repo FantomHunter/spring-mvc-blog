@@ -77,4 +77,8 @@ public class PostService {
         .map(this::convertPostDaoToPostDto)
         .orElseThrow(EntityNotFoundException::new);
   }
+
+  public void deletePost(String id) {
+    postRepository.deleteById(UUID.fromString(id));
+  }
 }

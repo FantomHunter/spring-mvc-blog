@@ -3,6 +3,7 @@ package com.codehunter.springmvcblog.admin.controller;
 import com.codehunter.springmvcblog.admin.bsservice.PostService;
 import com.codehunter.springmvcblog.dto.PostDto;
 import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataIn;
+import javax.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,5 +68,12 @@ public class AHomeController {
     var post = postService.getPost(id);
     model.addAttribute("post", post);
     return "admin/display-post.html";
+  }
+
+  @GetMapping("/delete-post/{id}")
+  public String deletePost(@PathVariable String id, Model model, HttpServletRequest request) {
+    postService.deletePost(id);
+    String referer = request.getHeader("Referer");
+    return "redirect:" + referer;
   }
 }
