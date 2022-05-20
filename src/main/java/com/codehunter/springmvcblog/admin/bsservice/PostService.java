@@ -1,21 +1,26 @@
 package com.codehunter.springmvcblog.admin.bsservice;
 
-import com.codehunter.springmvcblog.PostRepository;
-import com.codehunter.springmvcblog.dto.PostDto;
-import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataIn;
-import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataOut;
-import com.codehunter.springmvcblog.entity.Post;
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
 import javax.persistence.EntityNotFoundException;
-import lombok.RequiredArgsConstructor;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import com.codehunter.springmvcblog.PostRepository;
+import com.codehunter.springmvcblog.dto.PostDto;
+import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataIn;
+import com.codehunter.springmvcblog.dto.admin.DisplayAllPostDataOut;
+import com.codehunter.springmvcblog.entity.Post;
+import com.codehunter.springmvcblog.util.UUIDUtil;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -56,6 +61,9 @@ public class PostService {
   }
 
   public PostDto getPost(String id) {
+    if (!UUIDUtil.getInstance().isValidUUID(id)) {
+      throw new EntityNotFoundException();
+    }
     return postRepository
         .findById(UUID.fromString(id))
         .map(this::convertPostDaoToPostDto)
