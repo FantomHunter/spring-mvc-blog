@@ -1,7 +1,7 @@
 package com.codehunter.springmvcblog.dto;
 
 import java.time.Instant;
-import java.util.UUID;
+
 import lombok.Data;
 
 @Data
