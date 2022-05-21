@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{admin/layout/layout}"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{admin/layout/layout}" th:with="currentPage='post'">
 <head>
-  <meta charset="UTF-8">
-  <title>Post details</title>
+<meta charset="UTF-8">
+<title>Post details</title>
 </head>
 <body>
 
-<th:block layout:fragment="content">
-  <th:block th:unless="post==null">
-    <div class="h3" th:text="${post.title}"></div>
-    <div class="" th:text="'ID: ' + ${post.id}"></div>
-    <div th:utext="${post.content}"></div>
-  </th:block>
-</th:block>
+	<th:block layout:fragment="content">
+		<th:block th:unless="post==null">
+			<div class="h3" th:text="${post.title}"></div>
+			<div class="" th:text="'ID: ' + ${post.id}"></div>
+			<div th:utext="${post.content}"></div>
+		</th:block>
+	</th:block>
 </body>
 </html>

@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">My website</title>
-
-  <!-- Bootstrap -->
-  <title>Bootstrap demo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-        crossorigin="anonymous">
-  <!-- Custom Theme Style -->
-  <link href="css/custom.css" rel="stylesheet"
-        th:href="@{/css/custom.css}">
-  <!-- CK Editor -->
-  <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
-</head>
-<body class="nav-md">
-<div class="container body">
-  <div class="main_container">
-    <div class="top_nav" th:replace="admin/fragment/topnav.html :: topnav"></div>
-    <div class="row">
-      <div th:replace="admin/fragment/sidebar.html :: sidebar"></div>
-      <div class="col-md-9 ms-sm-auto px-md-4" role="main">
-        <div layout:fragment="content">
-          <p>content here</p>
-        </div>
-      </div>
-    </div>
-    <footer th:replace="admin/fragment/footer.html :: footer"></footer>
-  </div>
-</div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">My
+	website</title>
 
 <!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
-        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
-        crossorigin="anonymous"></script>
+<title>Bootstrap demo</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+<!-- Custom Theme Style -->
+<link href="css/custom.css" rel="stylesheet"
+	th:href="@{/css/custom.css}">
+<!-- CK Editor -->
+<script th:src="@{/ckeditor/ckeditor.js}"></script>
+</head>
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="top_nav"
+				th:replace="admin/fragment/topnav.html :: topnav"></div>
+			<div class="row">
+				<div th:replace="admin/fragment/sidebar.html :: sidebar"></div>
+				<div class="col-md-9 ms-sm-auto px-md-4" role="main">
+					<div layout:fragment="content">
+						<p>content here</p>
+					</div>
+				</div>
+			</div>
+			<footer th:replace="admin/fragment/footer.html :: footer"></footer>
+		</div>
+	</div>
+
+	<!-- Bootstrap -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+		integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+		integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+		crossorigin="anonymous"></script>
 </body>
 </html>
