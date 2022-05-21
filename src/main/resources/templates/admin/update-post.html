@@ -9,7 +9,7 @@
 <body>
 	<!-- page content -->
 	<th:block layout:fragment="content">
-		<div class="h3">Create New Post</div>
+		<div class="h3">Update Post</div>
 		<form class="needs-validation" novalidate=""
 			th:action="@{/admin/update-post}" th:object="${post}" method="post">
 			<div class="row g-3">
@@ -27,7 +27,6 @@
 						th:field="*{content}" id="floatingTextarea"
 						name="floatingTextarea" rows="20" style="min-height: 500px;"></textarea>
 				</div>
-
 			</div>
 
 			<hr class="my-4">

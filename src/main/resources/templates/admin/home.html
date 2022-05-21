@@ -28,7 +28,6 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Title</th>
-            <th scope="col">Content</th>
             <th scope="col">Created Date</th>
             <th scope="col">Action</th>
           </tr>
@@ -38,7 +37,7 @@
               th:each="post, iteration: ${allPostDataOut.postDtoList}">
             <th scope="row" th:text="${iteration.count}"></th>
             <td th:text="${post.title}">Mark</td>
-            <td th:utext="${post.content}">Otto</td>
+<!--             <td th:utext="${post.content}">Otto</td> -->
             <td th:utext="${#temporals.format(post.createdDate,'dd MMMM yyyy hh:mm:ss')}">Otto</td>
             <td>
               <a class="btn btn-info" th:href="@{/admin/post-details/{id}(id=${post.id})}">Show</a>

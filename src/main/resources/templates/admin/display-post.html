@@ -10,6 +10,8 @@
 
 	<th:block layout:fragment="content">
 		<th:block th:unless="post==null">
+			<a class="btn btn-warning"
+				th:href="@{/admin/update-post/{id}(id=${post.id})}">Update</a>
 			<div class="h3" th:text="${post.title}"></div>
 			<div class="" th:text="'ID: ' + ${post.id}"></div>
 			<div th:utext="${post.content}"></div>

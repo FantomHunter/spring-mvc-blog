@@ -53,15 +53,15 @@ public class AHomeController {
   @PostMapping("/create-post")
   public String createPost(@ModelAttribute("post") PostDto post, BindingResult error, Model model) {
     log.info("createPost" + post);
-    postService.createPost(post);
-    return "redirect:/admin";
+    var newPost = postService.createPost(post);
+    return "redirect:/admin/post-details/" + newPost.getId();
   }
 
   @PostMapping("/update-post")
   public String updatePost(@ModelAttribute("post") PostDto post, BindingResult error, Model model) {
     log.info("updatePost" + post);
-    postService.updatePost(post);
-    return "redirect:/admin";
+    var updatedPost = postService.updatePost(post);
+    return "redirect:/admin/post-details/" + updatedPost.getId();
   }
 
   @GetMapping("/post-details/{id}")
