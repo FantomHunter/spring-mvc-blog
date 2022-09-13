@@ -1,6 +1,7 @@
 package com.codehunter.springmvcblog.admin.bsservice;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -49,7 +50,7 @@ public class PostService {
     dto.setId(e.getId().toString());
     dto.setContent(new String(e.getContent(), StandardCharsets.UTF_8));
     dto.setTitle(e.getTitle());
-    dto.setCreatedDate(e.getCreatedDate());
+    dto.setCreatedDate(new Date(e.getCreatedDate().toEpochMilli()));
     return dto;
   }
 

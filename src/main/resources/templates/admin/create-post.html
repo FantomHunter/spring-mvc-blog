@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{admin/layout/layout}" th:with="currentPage='post'">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/layout}" th:with="currentPage='post'">
 <head>
-<meta charset="UTF-8">
-<title>Create new post</title>
+  <meta charset="UTF-8">
+  <title>Create new post</title>
 </head>
 <body>
-	<!-- page content -->
-	<th:block layout:fragment="content">
-		<div class="h3">Create New Post</div>
-		<form class="needs-validation" novalidate=""
-			th:action="@{/admin/create-post}" th:object="${post}" method="post">
-			<div class="row g-3">
-				<div class="col-12">
-					<label for="title" class="form-label">Title</label> <input
-						type="text" class="form-control" id="title" th:field="*{title}"
-						placeholder="" value="" required="">
-					<div class="invalid-feedback">Valid first name is required.</div>
-				</div>
+<!-- page content -->
+<th:block layout:fragment="content">
+  <div class="h3">Create New Post</div>
+  <form class="needs-validation" novalidate=""
+        th:action="@{/admin/create-post}" th:object="${post}" method="post">
+    <div class="row g-3">
+      <div class="col-12">
+        <label for="title" class="form-label">Title</label> <input
+          type="text" class="form-control" id="title" th:field="*{title}"
+          placeholder="" value="" required="">
+        <div class="invalid-feedback">Valid first name is required.</div>
+      </div>
 
-				<div class="col-12 ">
-					<label for="floatingTextarea" class="form-label">Content</label>
-					<textarea class="form-control" placeholder="Your content here"
-						th:field="*{content}" id="floatingTextarea"
-						name="floatingTextarea" rows="20" style="min-height: 500px;"></textarea>
-				</div>
+      <div class="col-12 ">
+        <label for="floatingTextarea" class="form-label">Content</label>
+        <textarea class="form-control" placeholder="Your content here"
+                  th:field="*{content}" id="floatingTextarea"
+                  name="floatingTextarea" rows="20" style="min-height: 500px;"></textarea>
+      </div>
+
+			<div class="col-12">
+				<label for="title" class="form-label">date</label> <input
+					type="date" class="form-control" id="date" th:field="*{createdDate}"
+					placeholder="" value="" required="">
+				<div class="invalid-feedback">Valid first name is required.</div>
 			</div>
+		</div>
 
-			<hr class="my-4">
+		<hr class="my-4">
 
-			<button class="w-100 btn btn-primary btn-lg" type="submit">Create</button>
-		</form>
-		<script>
+    <button class="w-100 btn btn-primary btn-lg" type="submit">Create</button>
+  </form>
+  <script>
 			CKEDITOR.replace('floatingTextarea');
-		</script>
-	</th:block>
+
+  </script>
+</th:block>
 </body>
 </html>
